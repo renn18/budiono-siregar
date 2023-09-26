@@ -18,3 +18,5 @@
 - cmd: npm i
 - cmd: npm run dev
 - cmd: php artisan serve
+
+call me Mushlihun on skype lihunskype
