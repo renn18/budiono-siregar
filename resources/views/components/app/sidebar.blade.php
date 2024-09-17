@@ -21,7 +21,7 @@
       </button>
       <!-- Logo -->
       <a class="block" href="{{ route('dashboard') }}">
-        <img src="{{ asset('images/logo-pelindo.png') }}" alt="">
+        <img src="{{ asset('images/logo-rafi.png') }}" alt="">
       </a>
     </div>
 
@@ -163,7 +163,7 @@
             </div>
           </li>
           {{-- Rekapitulasi Data --}}
-          <li class="px-3 py-2 rounded-sm mb-0.5 hover:bg-slate-600 last:mb-0 @if (Request::is('dashboard/rekapitulasi*')) {{ 'bg-slate-900' }} @endif"
+          <!-- <li class="px-3 py-2 rounded-sm mb-0.5 hover:bg-slate-600 last:mb-0 @if (Request::is('dashboard/rekapitulasi*')) {{ 'bg-slate-900' }} @endif"
             x-data="{ open: {{ Request::is('dashboard/rekapitulasi*') ? 1 : 0 }} }">
             <a class="block text-slate-200 hover:text-white truncate transition duration-100 @if (Request::is('dashboard/rekapitulasi*')) {{ '!text-indigo-500' }} @endif"
               href="{{ route('rekapitulasi.index') }}">
@@ -182,7 +182,7 @@
                 </div>
               </div>
             </a>
-          </li>
+          </li> -->
           <!-- Settings -->
           <li
             class="px-3 py-2 cursor-pointer rounded-sm mb-0.5 hover:bg-slate-600 last:mb-0 @if (in_array(Request::segment(1), ['settings'])) {{ 'bg-slate-900' }} @endif"
@@ -202,7 +202,7 @@
                     <path class="fill-current @if (in_array(Request::segment(1), ['settings'])) {{ 'text-indigo-300' }}@else{{ 'text-slate-400' }} @endif"
                       d="M19.707 9.292a3.012 3.012 0 00-1.415 1.415L13.286 5.7c-.4.195-.84.298-1.286.3a3 3 0 113-3 2.969 2.969 0 01-.3 1.286l5.007 5.006z" />
                   </svg>
-                  <span class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Settings</span>
+                  <span class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Pengaturan</span>
                 </div>
                 <!-- Icon -->
                 <div class="flex shrink-0 ml-2 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
@@ -218,14 +218,22 @@
                 <li class="mb-1 last:mb-0">
                   <a class="block text-slate-400 hover:text-white transition duration-150 truncate @if (Route::is('account')) {{ '!text-indigo-500' }} @endif"
                     href="{{ route('profile.show') }}">
-                    <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">My Account</span>
+                    <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Akun Saya</span>
                   </a>
                 </li>
                 <li class="mb-1 last:mb-0">
-                  <a class="block text-slate-400 hover:text-white transition duration-150 truncate @if (Route::is('notifications')) {{ '!text-indigo-500' }} @endif"
-                    href="/tambah-akun">
-                    <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Tambah Akun</span>
-                  </a>
+                <form method="POST" action="{{ route('logout') }}" x-data>
+                    @csrf
+
+                    <a class="block text-slate-400 hover:text-white transition duration-150 truncate"
+                        href="{{ route('logout') }}"
+                        @click.prevent="$root.submit();"
+                        @focus="open = true"
+                        @focusout="open = false"
+                    >
+                        {{ __('Sign Out') }}
+                    </a>
+                </form>
                 </li>
               </ul>
             </div>

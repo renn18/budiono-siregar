@@ -5,6 +5,10 @@
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Http;
     use App\Models\DataFeed;
+    // use App\Models\KapalModel;
+    // use App\Models\Details;
+
+
     use Carbon\Carbon;
 
     class DashboardController extends Controller
@@ -21,4 +25,14 @@
 
             return view('pages/dashboard/dashboard', compact('dataFeed'));
         }
+
+    //     public function index()
+    // {
+    //     $ships = KapalModel::paginate(10)->withPath(route('kapal.index'));
+    //     $keperluan = Details::all();
+    //     return view('pages.kapal.list-kapal.index', [
+    //         'ships' => $ships,
+    //         'keperluan' => $keperluan,
+    //     ]);
+    // }
     }

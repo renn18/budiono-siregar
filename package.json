@@ -22,6 +22,8 @@
         "chartjs-adapter-moment": "^1.0.1",
         "flatpickr": "^4.6.13",
         "moment": "^2.29.4",
+        "mysql": "^2.18.1",
+        "mysql2": "^3.11.3",
         "sweetalert2": "^11.7.20"
     }
 }
