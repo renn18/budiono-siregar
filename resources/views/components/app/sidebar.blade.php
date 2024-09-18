@@ -5,7 +5,7 @@
 
   <!-- Sidebar -->
   <div id="sidebar"
-    class="flex flex-col absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 lg:w-20 lg:sidebar-expanded:!w-64 2xl:!w-64 shrink-0 bg-slate-800 p-4 transition-all duration-200 ease-in-out"
+    class="flex flex-col absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 lg:w-20 lg:sidebar-expanded:!w-64 2xl:!w-64 shrink-0 my-color p-4 transition-all duration-200 ease-in-out"
     :class="sidebarOpen ? 'translate-x-0' : '-translate-x-64'" @click.outside="sidebarOpen = false" @keydown.escape.window="sidebarOpen = false"
     x-cloak="lg">
 
@@ -29,13 +29,13 @@
     <div class="space-y-8">
       <!-- Pages group -->
       <div>
-        <h3 class="text-xs uppercase text-slate-500 font-semibold pl-3">
+        <h3 class="text-xs uppercase text-slate-300 font-semibold pl-3">
           <span class="hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6" aria-hidden="true">•••</span>
           <span class="lg:hidden lg:sidebar-expanded:block 2xl:block">Pages</span>
         </h3>
         <ul class="mt-3">
           <!-- Dashboard -->
-          <li class="px-3 py-2 rounded-sm mb-0.5 hover:bg-slate-600 last:mb-0 @if (Request::is('dashboard')) {{ 'bg-slate-900' }} @endif"
+          <li class="px-3 py-2 rounded-lg mb-0.5 hover:bg-slate-600 last:mb-0 @if (Request::is('dashboard')) {{ 'bg-slate-700' }} @endif"
             x-data="{ open: {{ in_array(Request::segment(1), ['dashboard']) ? 1 : 0 }} }">
             <a class="block text-slate-200 hover:text-white truncate transition duration-100 @if (Request::is('dashboard')) {{ '!text-indigo-500' }} @endif"
               href="{{ route('dashboard') }}">
@@ -56,7 +56,7 @@
           </li>
           <!-- Kapal -->
           <li
-            class="px-3 py-2 cursor-pointer rounded-sm mb-0.5 hover:bg-slate-600 last:mb-0 @if (Request::is('dashboard/kapal*')) {{ 'bg-slate-900' }} @elseif (Request::is('dashboard/details*')) {{ 'bg-slate-900' }} @endif"
+            class="px-3 py-2 cursor-pointer rounded-lg mb-0.5 hover:bg-slate-600 last:mb-0 @if (Request::is('dashboard/kapal*')) {{ 'bg-slate-700' }} @elseif (Request::is('dashboard/details*')) {{ 'bg-slate-700' }} @endif"
             x-data="{ open: {{ Request::is('dashboard/kapal*', 'dashboard/details*') ? 1 : 0 }} }">
             <div
               class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(2), ['kapal'])) {{ 'hover:text-white' }} @endif"
@@ -118,7 +118,7 @@
           </li>
           <!-- Penjadwalan -->
           <li
-            class="px-3 py-2 cursor-pointer rounded-sm mb-0.5 hover:bg-slate-600 last:mb-0 @if (Request::is('dashboard/schedules*')) {{ 'bg-slate-900' }} @endif"
+            class="px-3 py-2 cursor-pointer rounded-lg mb-0.5 hover:bg-slate-600 last:mb-0 @if (Request::is('dashboard/schedules*')) {{ 'bg-slate-900' }} @endif"
             x-data="{ open: {{ Request::is('dashboard/schedules*') ? 1 : 0 }} }">
             <div
               class="block text-slate-200 hover:text-white truncate transition duration-150 @if (Request::is('dashboard/schedules*')) {{ 'hover:text-white' }} @endif"
@@ -163,7 +163,7 @@
             </div>
           </li>
           {{-- Rekapitulasi Data --}}
-          <!-- <li class="px-3 py-2 rounded-sm mb-0.5 hover:bg-slate-600 last:mb-0 @if (Request::is('dashboard/rekapitulasi*')) {{ 'bg-slate-900' }} @endif"
+          <!-- <li class="px-3 py-2 rounded-lg mb-0.5 hover:bg-slate-600 last:mb-0 @if (Request::is('dashboard/rekapitulasi*')) {{ 'bg-slate-900' }} @endif"
             x-data="{ open: {{ Request::is('dashboard/rekapitulasi*') ? 1 : 0 }} }">
             <a class="block text-slate-200 hover:text-white truncate transition duration-100 @if (Request::is('dashboard/rekapitulasi*')) {{ '!text-indigo-500' }} @endif"
               href="{{ route('rekapitulasi.index') }}">
@@ -185,7 +185,7 @@
           </li> -->
           <!-- Settings -->
           <li
-            class="px-3 py-2 cursor-pointer rounded-sm mb-0.5 hover:bg-slate-600 last:mb-0 @if (in_array(Request::segment(1), ['settings'])) {{ 'bg-slate-900' }} @endif"
+            class="px-3 py-2 cursor-pointer rounded-lg mb-0.5 hover:bg-slate-600 last:mb-0 @if (in_array(Request::segment(1), ['settings'])) {{ 'bg-slate-900' }} @endif"
             x-data="{ open: {{ in_array(Request::segment(1), ['settings']) ? 1 : 0 }} }">
             <div
               class="block text-slate-200 hover:text-white truncate transition duration-150 @if (in_array(Request::segment(1), ['settings'])) {{ 'hover:text-white' }} @endif"

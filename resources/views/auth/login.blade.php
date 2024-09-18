@@ -1,7 +1,7 @@
 <x-authentication-layout>
-    <h1 class="text-2xl text-center font-bold mb-6">{{ __('PELAYANAN DATA KAPAL') }}</h1>
-    <h2 class="text-xl text-center font-bold">{{ __('Pelabuhan Rauf Rahman') }}</h2>
-    <h2 class="text-xl text-center font-bold mb-6">{{ __('Benteng Selayar') }}</h2>
+    <h1 class="text-2xl text-center font-bold mb-6 text-red-600">{{ __('PELAYANAN DATA KAPAL') }}</h1>
+    <h2 class="text-xl text-center font-bold text-slate-900">{{ __('Pelabuhan Rauf Rahman') }}</h2>
+    <h2 class="text-xl text-center font-bold mb-6 text-slate-900">{{ __('Benteng Selayar') }}</h2>
     @if (session('status'))
         <div class="mb-4 font-medium text-sm text-green-600">
             {{ session('status') }}
@@ -12,11 +12,11 @@
         @csrf
         <div class="space-y-4">
             <div>
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" type="email" name="email" :value="old('email')" required autofocus />                
+                <x-jet-label for="email" value="{{ __('Email') }}" class="text-slate-600"/>
+                <x-jet-input id="email" type="email" name="email" :value="old('email')" required autofocus class="text-gray-900" />                
             </div>
             <div>
-                <x-jet-label for="password" value="{{ __('Password') }}" />
+                <x-jet-label for="password" value="{{ __('Password') }}" class="text-slate-600" />
                 <x-jet-input id="password" type="password" name="password" required autocomplete="current-password" />                
             </div>
         </div>

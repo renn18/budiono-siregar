@@ -48,8 +48,8 @@
                     <tr>
                     <?php while($data = mysqli_fetch_assoc($result))
                     {
-                        $ndata = $data['profile_photo_path'];
-                        echo $ndata;
+                        // $ndata = $data['profile_photo_path'];
+                        // echo $ndata;
                     ?>
                         <td class="p-2 whitespace-nowrap">
                             <div class="flex items-center">
@@ -57,7 +57,6 @@
                                     <img class="rounded-full" src="{{ asset('images/'.Auth::user()->profile_photo_path)}}" width="40" height="40" alt="Alex Shatov" />
                                 </div>
                                 <!-- profile_photo_path -->
-                                <div class="font-medium text-slate-800"><?= $data['profile_photo_path']; ?></div>
                             </div>
                         </td>
                         <td class="p-2 whitespace-nowrap">
