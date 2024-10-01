@@ -11,8 +11,71 @@ import flatpickr from "flatpickr";
 // Import TailwindCSS variables
 import { tailwindConfig } from "./utils";
 
+const mysql = require('mysql');
+const express = require('express');
+const cors = require('cors');
+
+const app = express();
+
+app.use(express.json());
+
+const pool = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'datakapal'
+});
+
+const PORT = 3001;
+
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+  });
+
+// async function countKapal() {
+//     const [rows] = await pool.query("SELECT COUNT(id) FROM kapal");
+//     return rows;
+// }
+
+// const notes = await countKapal();
+// console.log(notes);
+// const any = pool.query('SELECT COUNT(id) FROM kapal', (error, res, field) => {
+//     if(error) throw error;
+//     res.json(any);
+// });
+
+app.use('/datacreate', cors());
+app.use('/datacreate2', cors());
+
+app.get('/datacreate', (req, res) => {
+    pool.query('SELECT COUNT(nama_kapal) AS data FROM kapal UNION SELECT COUNT(nama_kapal) AS data2 FROM schedules', (err, results) => {
+        if(err) throw err;
+        res.json(results);
+        // console.log(results[1].data);
+        
+    });
+});
+
+app.get('/datacreate2', (req, res) => {
+    pool.query('SELECT COUNT(nama_kapal) AS data2 FROM schedules', (err, results) => {
+        if(err) throw err;
+        res.json(results);
+        
+    });
+});
+
+  
+
 // import component from './components/component';
+import dashboardCard01 from "./components/dashboard-card-01";
+import dashboardCard02 from "./components/dashboard-card-02";
+import dashboardCard03 from "./components/dashboard-card-03";
+import dashboardCard04 from "./components/dashboard-card-04";
+import dashboardCard05 from "./components/dashboard-card-05";
 import dashboardCard06 from "./components/dashboard-card-06";
+import dashboardCard08 from "./components/dashboard-card-08";
+import dashboardCard09 from "./components/dashboard-card-09";
+import dashboardCard11 from "./components/dashboard-card-11";
 
 // Call Alpine
 window.Alpine = Alpine;
@@ -120,5 +183,13 @@ document.addEventListener("DOMContentLoaded", () => {
             instance.element.value = dateStr.replace("to", "-");
         },
     });
+    dashboardCard01();
+    dashboardCard02();
+    dashboardCard03();
+    dashboardCard04();
+    dashboardCard05();
     dashboardCard06();
+    dashboardCard08();
+    dashboardCard09();
+    dashboardCard11();
 });

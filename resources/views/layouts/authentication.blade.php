@@ -24,7 +24,7 @@
   </script>
 </head>
 
-<body class="font-inter antialiased bg-slate-100 text-slate-900 dark:text-slate-400">
+<body class="font-inter antialiased bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-400">
 
   <main>
 
@@ -40,8 +40,11 @@
             <div class="flex items-center justify-between mt-8 h-16 px-4 sm:px-6 lg:px-8">
               <!-- Logo -->
               <a class="block " href="{{ route('dashboard') }}">
-                <img width="200" src="{{ asset('images/logo-rafi.png') }}" alt="logo pelabuhan">
+                <img width="200" class="dark:invert" src="{{ asset('images/logo-rafi.png') }}" alt="logo pelabuhan">
               </a>
+              <!-- Dark mode toggle -->
+              <x-theme-toggle />
+
             </div>
           </div>
 

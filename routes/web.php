@@ -21,6 +21,11 @@ use App\Http\Controllers\SempakController;
 */
 
 Route::redirect('/', 'login');
+Route::redirect('/tambah-akun', 'register')->name('register');
+
+Route::get('/guest', function() {
+    return view('guest');
+});
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     // Route for the getting the data feed
@@ -42,7 +47,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::get('rekapitulasi-data', [KapalController::class, 'recapitulation'])->name('rekapitulasi.index');
     });
 
-    Route::redirect('/tambah-akun', 'register')->name('register');
+    
 
     // Route if page not found
     Route::fallback(function () {

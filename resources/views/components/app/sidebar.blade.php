@@ -21,7 +21,7 @@
       </button>
       <!-- Logo -->
       <a class="block" href="{{ route('dashboard') }}">
-        <img src="{{ asset('images/logo-rafi.png') }}" alt="">
+        <img class="dark:invert" src="{{ asset('images/logo-rafi.png') }}" alt="">
       </a>
     </div>
 
@@ -222,18 +222,17 @@
                   </a>
                 </li>
                 <li class="mb-1 last:mb-0">
-                <form method="POST" action="{{ route('logout') }}" x-data>
+                  <form method="POST" action="{{ route('logout') }}" x-data>
                     @csrf
 
                     <a class="block text-slate-400 hover:text-white transition duration-150 truncate"
-                        href="{{ route('logout') }}"
-                        @click.prevent="$root.submit();"
-                        @focus="open = true"
-                        @focusout="open = false"
-                    >
-                        {{ __('Sign Out') }}
+                      href="{{ route('logout') }}"
+                      @click.prevent="$root.submit();"
+                      @focus="open = true"
+                      @focusout="open = false">
+                      {{ __('Sign Out') }}
                     </a>
-                </form>
+                  </form>
                 </li>
               </ul>
             </div>
